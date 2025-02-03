@@ -13,7 +13,10 @@ COPY ["NumberClassification.API/NumberClassification.API.csproj", "NumberClassif
 COPY ["NumberClassification.Domain/NumberClassification.Domain.csproj", "NumberClassification.Domain/"]
 COPY ["NumberClassification.Application/NumberClassification.Application.csproj", "NumberClassification.Application/"]
 COPY ["NumberClassification.Infrastructure/NumberClassification.Infrastructure.csproj", "NumberClassification.Infrastructure/"]
-RUN dotnet restore "NumberClassification.API/NumberClassification.API.csproj"
+
+# Set higher timeout for NuGet and add retry logic
+RUN dotnet restore "NumberClassification.API/NumberClassification.API.csproj" --no-cache --disable-parallel \
+    || dotnet restore "NumberClassification.API/NumberClassification.API.csproj" --no-cache --disable-parallel
 
 # Copy everything else and build
 COPY . .

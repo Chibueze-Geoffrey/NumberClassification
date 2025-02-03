@@ -19,8 +19,26 @@ namespace NumberClassification.API.Controllers
         }
 
         [HttpGet("classify-number")]
-        public async Task<IActionResult> ClassifyNumber([FromQuery] string number)
+        public async Task<IActionResult> ClassifyNumber()
         {
+            if (!Request.Query.ContainsKey("number"))
+            {
+                return BadRequest(new
+                {
+                    detail = new List<object>
+                    {
+                        new
+                        {
+                            type = "missing",
+                            loc = new List<string> { "query", "number" },
+                            msg = "Field required",
+                            input = (string)null
+                        }
+                    }
+                });
+            }
+
+            string number = Request.Query["number"];
             if (!int.TryParse(number, out int parsedNumber))
             {
                 return BadRequest(new { number = "alphabet", error = true });
