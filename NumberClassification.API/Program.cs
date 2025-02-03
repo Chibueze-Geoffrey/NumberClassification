@@ -1,3 +1,4 @@
+using NumberClassification.API.Filters;
 using NumberClassification.Application.Interface;
 using NumberClassification.Application.UseCase;
 using NumberClassification.Infrastructure.Implementation;
@@ -9,7 +10,10 @@ builder.Services.AddHttpClient(); // Register HttpClient
 builder.Services.AddScoped<INumberService, NumberService>();
 builder.Services.AddScoped<IClassifyNumber,ClassifyNumber>();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<ValidateNumberQueryParameterAttribute>();
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
