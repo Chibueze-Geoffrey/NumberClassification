@@ -92,6 +92,8 @@ namespace NumberClassification.Infrastructure.Implementation
 
         private bool IsArmstrong(int number)
         {
+            number = Math.Abs(number); // Make the number absolute before Armstrong check
+
             int sum = 0;
             int temp = number;
             int numberOfDigits = number.ToString().Length;
