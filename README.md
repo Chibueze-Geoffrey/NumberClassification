@@ -16,6 +16,7 @@ This API classifies numbers and provides interesting properties along with a fun
 ## API Specification
 - **Endpoint**: `GET /api/classify-number?number={number}`
 - **Response (200 OK)**:
+- url: https://numberclassification.onrender.com/api/Number/classify-number?number=372
 ```json
 {
     "number": 371,
