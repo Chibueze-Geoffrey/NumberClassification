@@ -22,7 +22,12 @@ namespace NumberClassification.API.Controllers
         {
             if (!int.TryParse(number, out int parsedNumber))
             {
-                return BadRequest(new { number, error = true });
+                return BadRequest(new { number = "alphabet", error = true });
+            }
+
+            if (parsedNumber < 0)
+            {
+                return BadRequest(new { number = parsedNumber, error = true });
             }
 
             var result = await _classifyNumberUseCase.ExecuteAsync(parsedNumber);

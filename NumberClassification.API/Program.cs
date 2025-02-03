@@ -31,7 +31,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
-app.Urls.Add("http://0.0.0.0:80");
+//app.Urls.Add("http://0.0.0.0:80");
 app.UseRouting();
 app.UseCors("AllowAll"); 
 app.UseSwagger();

@@ -20,6 +20,15 @@ namespace NumberClassification.Infrastructure.Implementation
 
         public async Task<Dictionary<string, object>> ClassifyNumberAsync(int number)
         {
+            if (number < 0)
+            {
+                return new Dictionary<string, object>
+                {
+                    { "number", number },
+                    { "error", true }
+                };
+            }
+
             var numberProperties = new NumberProperties
             {
                 Number = number,
@@ -102,7 +111,7 @@ namespace NumberClassification.Infrastructure.Implementation
 
         private int GetDigitSum(int number)
         {
-            return number.ToString().Sum(c => c - '0');
+            return Math.Abs(number).ToString().Sum(c => c - '0');
         }
 
         private Dictionary<string, object> ToSnakeCaseDictionary(NumberProperties properties)
