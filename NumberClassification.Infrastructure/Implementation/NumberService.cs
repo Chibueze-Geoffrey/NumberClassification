@@ -20,15 +20,6 @@ namespace NumberClassification.Infrastructure.Implementation
 
         public async Task<Dictionary<string, object>> ClassifyNumberAsync(int number)
         {
-            if (number < 0)
-            {
-                return new Dictionary<string, object>
-                {
-                    { "number", number },
-                    { "error", true }
-                };
-            }
-
             var numberProperties = new NumberProperties
             {
                 Number = number,
@@ -44,6 +35,12 @@ namespace NumberClassification.Infrastructure.Implementation
 
         private async Task<string> GetFunFact(int number)
         {
+            // Handle negative fun fact
+            if (number < 0)
+            {
+                return $"{number} is an uninteresting number.";
+            }
+
             var response = await _httpClient.GetStringAsync($"http://numbersapi.com/{number}/math");
             return response;
         }
