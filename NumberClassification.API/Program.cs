@@ -33,7 +33,7 @@ if (app.Environment.IsDevelopment())
 }
 //app.Urls.Add("http://0.0.0.0:80");
 app.UseRouting();
-app.UseCors();
+app.UseCors("AllowAll"); 
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
@@ -41,7 +41,7 @@ app.UseSwaggerUI(c =>
 });
 
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

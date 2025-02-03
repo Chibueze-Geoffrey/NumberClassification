@@ -41,26 +41,68 @@ namespace NumberClassification.Infrastructure.Implementation
 
         private bool IsPrime(int number)
         {
-            // Prime number logic
-            return true; // Placeholder
+            if (number <= 1) return false;
+            if (number == 2) return true;
+            if (number % 2 == 0) return false;
+
+            var boundary = (int)Math.Floor(Math.Sqrt(number));
+
+            for (int i = 3; i <= boundary; i += 2)
+            {
+                if (number % i == 0) return false;
+            }
+
+            return true;
         }
 
         private bool IsPerfect(int number)
         {
-            // Perfect number logic
-            return false; // Placeholder
+            if (number < 1) return false;
+
+            int sum = 0;
+            for (int i = 1; i <= number / 2; i++)
+            {
+                if (number % i == 0)
+                    sum += i;
+            }
+
+            return sum == number;
         }
 
         private List<string> GetProperties(int number)
         {
-            // Armstrong and odd/even properties
-            return new List<string> { "armstrong", "odd" }; // Placeholder
+            var properties = new List<string>();
+
+            if (IsArmstrong(number))
+                properties.Add("armstrong");
+
+            if (number % 2 == 0)
+                properties.Add("even");
+            else
+                properties.Add("odd");
+
+            return properties;
+        }
+
+        private bool IsArmstrong(int number)
+        {
+            int sum = 0;
+            int temp = number;
+            int numberOfDigits = number.ToString().Length;
+
+            while (temp != 0)
+            {
+                int digit = temp % 10;
+                sum += (int)Math.Pow(digit, numberOfDigits);
+                temp /= 10;
+            }
+
+            return sum == number;
         }
 
         private int GetDigitSum(int number)
         {
-            // Sum of digits logic
-            return number.ToString().Sum(c => c - '0'); // Example logic
+            return number.ToString().Sum(c => c - '0');
         }
 
         private Dictionary<string, object> ToSnakeCaseDictionary(NumberProperties properties)
