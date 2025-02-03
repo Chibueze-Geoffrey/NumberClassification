@@ -5,7 +5,7 @@ This API classifies numbers and provides interesting properties along with a fun
 
 ## Technology Stack
 - ASP.NET Core
-- Entity Framework Core
+- C#
 - Swagger
 
 ## How to Run
