@@ -26,5 +26,9 @@ RUN dotnet publish "NumberClassification.API.csproj" -c Release -o /app/publish
 # Use the base image to run the application
 FROM base AS final
 WORKDIR /app
+
+# Set the environment variable to force Kestrel to listen on all network interfaces
+ENV ASPNETCORE_URLS=http://+:80
+
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "NumberClassification.API.dll"]
