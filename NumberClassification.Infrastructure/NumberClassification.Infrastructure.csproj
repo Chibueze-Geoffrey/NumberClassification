@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NumberClassification.Application\NumberClassification.Application.csproj" />
     <ProjectReference Include="..\NumberClassification.Domain\NumberClassification.Domain.csproj" />
-    <ProjectReference Include="..\NumberClassificationAPI.Application\NumberClassification.Application.csproj" />
   </ItemGroup>
 
 </Project>

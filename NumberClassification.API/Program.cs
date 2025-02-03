@@ -1,5 +1,5 @@
 using NumberClassification.Application.Interface;
-using NumberClassification.Application.UseCases;
+using NumberClassification.Application.UseCase;
 using NumberClassification.Infrastructure.Implementation;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddHttpClient(); // Register HttpClient
 builder.Services.AddScoped<INumberService, NumberService>();
-builder.Services.AddScoped<ClassifyNumber>();
+builder.Services.AddScoped<IClassifyNumber,ClassifyNumber>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -44,6 +44,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
-
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 app.Run();

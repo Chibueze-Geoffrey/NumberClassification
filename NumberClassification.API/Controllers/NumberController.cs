@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NumberClassification.Application.UseCases;
+using NumberClassification.Application.Interface;
+using NumberClassification.Application.UseCase;
 
 namespace NumberClassification.API.Controllers
 {
@@ -8,9 +9,9 @@ namespace NumberClassification.API.Controllers
     [ApiController]
     public class NumberController : ControllerBase
     {
-        private readonly ClassifyNumber _classifyNumberUseCase;
+        private readonly IClassifyNumber _classifyNumberUseCase;
 
-        public NumberController(ClassifyNumber classifyNumberUseCase)
+        public NumberController(IClassifyNumber classifyNumberUseCase)
         {
             _classifyNumberUseCase = classifyNumberUseCase;
         }

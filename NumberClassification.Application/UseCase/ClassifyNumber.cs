@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NumberClassification.Application.UseCases
+namespace NumberClassification.Application.UseCase
 {
-    public class ClassifyNumber
+    public class ClassifyNumber: IClassifyNumber
     {
         private readonly INumberService _numberService;
 

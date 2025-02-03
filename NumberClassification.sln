@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberClassification.Domain
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberClassification.Infrastructure", "NumberClassification.Infrastructure\NumberClassification.Infrastructure.csproj", "{29EE1F5A-E815-472D-9E09-99AED50F3F6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberClassification.Application", "NumberClassificationAPI.Application\NumberClassification.Application.csproj", "{231BA72D-B6E4-4BA5-80D0-B9727B5CD021}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberClassification.Application", "NumberClassification.Application\NumberClassification.Application.csproj", "{6F1C183A-B075-4594-BD32-FE19E2010124}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +31,10 @@ Global
 		{29EE1F5A-E815-472D-9E09-99AED50F3F6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29EE1F5A-E815-472D-9E09-99AED50F3F6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29EE1F5A-E815-472D-9E09-99AED50F3F6F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{231BA72D-B6E4-4BA5-80D0-B9727B5CD021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{231BA72D-B6E4-4BA5-80D0-B9727B5CD021}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{231BA72D-B6E4-4BA5-80D0-B9727B5CD021}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{231BA72D-B6E4-4BA5-80D0-B9727B5CD021}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F1C183A-B075-4594-BD32-FE19E2010124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F1C183A-B075-4594-BD32-FE19E2010124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F1C183A-B075-4594-BD32-FE19E2010124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F1C183A-B075-4594-BD32-FE19E2010124}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +43,6 @@ Global
 		{AF1A7D06-31E8-4A9B-9968-1446D3939553} = {DA138420-926B-4542-A46E-74D1A9C830D8}
 		{6A8A938D-A45E-4282-87D2-F9757535B263} = {DA138420-926B-4542-A46E-74D1A9C830D8}
 		{29EE1F5A-E815-472D-9E09-99AED50F3F6F} = {DA138420-926B-4542-A46E-74D1A9C830D8}
-		{231BA72D-B6E4-4BA5-80D0-B9727B5CD021} = {DA138420-926B-4542-A46E-74D1A9C830D8}
+		{6F1C183A-B075-4594-BD32-FE19E2010124} = {DA138420-926B-4542-A46E-74D1A9C830D8}
 	EndGlobalSection
 EndGlobal

@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NumberClassification.Infrastructure\NumberClassification.Infrastructure.csproj" />
-    <ProjectReference Include="..\NumberClassificationAPI.Application\NumberClassification.Application.csproj" />
   </ItemGroup>
 
 </Project>
