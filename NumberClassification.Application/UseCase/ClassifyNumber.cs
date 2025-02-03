@@ -1,14 +1,10 @@
 ﻿using NumberClassification.Application.Interface;
-using NumberClassification.Domain.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace NumberClassification.Application.UseCase
 {
-    public class ClassifyNumber: IClassifyNumber
+    public class ClassifyNumber : IClassifyNumber
     {
         private readonly INumberService _numberService;
 
@@ -17,9 +13,9 @@ namespace NumberClassification.Application.UseCase
             _numberService = numberService;
         }
 
-        public NumberProperties Execute(int number)
+        public async Task<Dictionary<string, object>> ExecuteAsync(int number)
         {
-            return _numberService.ClassifyNumber(number);
+            return await _numberService.ClassifyNumberAsync(number);
         }
     }
 }

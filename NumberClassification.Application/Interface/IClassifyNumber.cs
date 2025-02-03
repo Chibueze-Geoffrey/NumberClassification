@@ -9,6 +9,6 @@ namespace NumberClassification.Application.Interface
 {
     public interface IClassifyNumber
     {
-        NumberProperties Execute(int number);
+        Task<Dictionary<string, object>> ExecuteAsync(int number);
     }
 }

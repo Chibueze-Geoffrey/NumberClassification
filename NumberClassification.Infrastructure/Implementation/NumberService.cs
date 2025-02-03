@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace NumberClassification.Infrastructure.Implementation
@@ -17,7 +17,8 @@ namespace NumberClassification.Infrastructure.Implementation
         {
             _httpClient = httpClient;
         }
-        public NumberProperties ClassifyNumber(int number)
+
+        public async Task<Dictionary<string, object>> ClassifyNumberAsync(int number)
         {
             var numberProperties = new NumberProperties
             {
@@ -26,10 +27,10 @@ namespace NumberClassification.Infrastructure.Implementation
                 IsPerfect = IsPerfect(number),
                 Properties = GetProperties(number),
                 DigitSum = GetDigitSum(number),
-                FunFact = GetFunFact(number).Result
+                FunFact = await GetFunFact(number)
             };
 
-            return numberProperties;
+            return ToSnakeCaseDictionary(numberProperties);
         }
 
         private async Task<string> GetFunFact(int number)
@@ -62,10 +63,30 @@ namespace NumberClassification.Infrastructure.Implementation
             return number.ToString().Sum(c => c - '0'); // Example logic
         }
 
-        //private string GetFunFact(int number)
-        //{
-        //    // Call to Numbers API
-        //    return $"Fun fact about {number}"; // Placeholder
-        //}
+        private Dictionary<string, object> ToSnakeCaseDictionary(NumberProperties properties)
+        {
+            var dict = new Dictionary<string, object>
+            {
+                { "number", properties.Number },
+                { "is_prime", properties.IsPrime },
+                { "is_perfect", properties.IsPerfect },
+                { "properties", properties.Properties.Select(ToSnakeCase).ToList() },
+                { "digit_sum", properties.DigitSum },
+                { "fun_fact", properties.FunFact }
+            };
+
+            return dict;
+        }
+
+        private string ToSnakeCase(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                return string.Empty;
+            }
+
+            var startUnderscores = Regex.Match(input, @"^_+");
+            return startUnderscores + Regex.Replace(input, @"([a-z0-9])([A-Z])", "$1_$2").ToLower();
+        }
     }
 }
